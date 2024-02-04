@@ -1,25 +1,36 @@
 import { BaseComponent } from "../BaseComponent/BaseComponent.js";
 
 export class Rectangle extends BaseComponent {
-	constructor(color) {
-		super(color);
+	width;
+	height;
+
+	constructor(x, y, width, height, color) {
+		super(x, y, color);
+
+		this.width = width;
+		this.height = height;
 	}
 
-	setColor(color) {
-		this.color = color;
+	setSize(width, height) {
+		this.width = width;
+		this.height = height;
 	}
 
-	draw(x, y, width, height) {
-		this.ctx.fillStyle = this.color;
-		this.ctx.fillRect(x, y, width, height);
+	draw() {
+		if (this.fill) {
+			this.ctx.fillStyle = this.color;
+			this.ctx.fillRect(this.x, this.y, this.width, this.height);
+		} else {
+			this.ctx.strokeStyle = this.color;
+			this.ctx.strokeRect(this.x, this.y, this.width, this.height);
+		}
 	}
 
-	clear(x, y, width, height) {
-		this.ctx.clearRect(x, y, width, height);
-	}
-
-	stroke(x, y, width, height) {
-		this.ctx.strokeStyle = this.color;
-		this.ctx.strokeRect(x, y, width, height);
+	clear() {
+		if (this.fill) {
+			this.ctx.clearRect(this.x, this.y, this.width, this.height);
+		} else {
+			this.ctx.clearRect(this.x - 1, this.y - 1, this.width + 1, this.height + 1);
+		} 
 	}
 }

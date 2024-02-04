@@ -1,11 +1,14 @@
-import { Rectangle } from "./src/components/Rectangle/Rectangle.js";
 import { Square } from "./src/components/Square/Square.js";
 
-const rectangle = new Rectangle("green")
+let x = 10;
+let y = 10;
+let width = 30;
 
-rectangle.draw(20, 20, 10, 10)
-rectangle.stroke(10, 10, 10, 10)
+const square = new Square(x, y, width, "orange");
+square.stroke()
 
-const square = new Square("orange");
-square.draw(40, 40, 20)
-square.clear(50, 50, 10, 10)
+setInterval(() => {
+	x += 1;
+	y += 1;
+	square.moveTo(x, y);
+}, 100)
