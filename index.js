@@ -1,14 +1,14 @@
 import { Square } from "./src/components/Square/Square.js";
+import { Dot } from "./src/components/Dot/Dot.js";
 
 let x = 10;
 let y = 10;
-let width = 30;
 
-const square = new Square(x, y, width, "orange");
-square.stroke()
+const dot = new Dot(x, y, "green");
+dot.draw()
 
 setInterval(() => {
 	x += 1;
 	y += 1;
-	square.moveTo(x, y);
+	dot.moveTo(x, y);
 }, 100)
