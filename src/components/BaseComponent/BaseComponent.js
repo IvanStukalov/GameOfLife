@@ -1,3 +1,5 @@
+import { canvas } from "../../canvas/canvas.js";
+
 export class BaseComponent {
 	ctx;
 
@@ -7,14 +9,15 @@ export class BaseComponent {
 	fill = true;
 
 	constructor(x, y, color) {
-		canvas = document.getElementById("canvas");
-		if (canvas.getContext) {
-			this.ctx = canvas.getContext("2d");
+		if (canvas.canvas.getContext) {
+			this.ctx = canvas.canvas.getContext("2d");
 		}
 
 		this.x = x;
 		this.y = y;
 		this.color = color;
+
+		canvas.addToRegistry(this);
 	}
 
 	setCoords(x, y) {
@@ -34,12 +37,18 @@ export class BaseComponent {
 		this.fill = false;
 	}
 
-	draw() { };
-	clear() { };
+	draw() { }
+	clear() { }
 
 	moveTo(x, y) {
 		this.clear();
 		this.setCoords(x, y);
 		this.draw();
 	}
+
+	hitTarget() {
+		return false;
+	}
+
+	onClick() {}
 }
