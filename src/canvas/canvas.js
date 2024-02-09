@@ -1,4 +1,4 @@
-export const CANVAS_LEFT_BOUND = 100;
+export const CANVAS_LEFT_BOUND = 10;
 export const CANVAS_TOP_BOUND = 10;
 export const CANVAS_WIDTH = 1500;
 export const CANVAS_HEIGHT = 900;
