@@ -6,7 +6,19 @@ export class BaseComponent {
 	x;
 	y;
 	color;
-	fill = true;
+	isFilled = true;
+
+	#handlers = {
+		"swapColor": () => {
+			if (this.isFilled) {
+				this.clear();
+				this.stroke();
+			} else {
+				this.fill();
+			}
+			this.draw();
+		},
+	}
 
 	constructor(x, y, color) {
 		if (canvas.canvas.getContext) {
@@ -30,15 +42,15 @@ export class BaseComponent {
 	}
 
 	fill() {
-		this.fill = true;
+		this.isFilled = true;
 	}
 
 	stroke() {
-		this.fill = false;
+		this.isFilled = false;
 	}
 
-	draw() { }
-	clear() { }
+	draw() { }	// abstract method, redefined in following classes
+	clear() { }	// abstract method, redefined in following classes
 
 	moveTo(x, y) {
 		this.clear();
@@ -46,9 +58,11 @@ export class BaseComponent {
 		this.draw();
 	}
 
-	hitTarget() {
+	hitTarget() {		// almost abstract method, redefined in following classes
 		return false;
 	}
 
-	onClick() {}
+	onClick(handler) {
+		this.#handlers[handler]();
+	}
 }

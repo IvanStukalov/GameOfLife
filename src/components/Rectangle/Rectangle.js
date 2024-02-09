@@ -18,7 +18,7 @@ export class Rectangle extends BaseComponent {
 	}
 
 	draw() {
-		if (this.fill) {
+		if (this.isFilled) {
 			this.ctx.fillStyle = this.color;
 			this.ctx.fillRect(this.x, this.y, this.#width, this.#height);
 		} else {
@@ -28,7 +28,7 @@ export class Rectangle extends BaseComponent {
 	}
 
 	clear() {
-		if (this._fill) {
+		if (this.isFilled) {
 			this.ctx.clearRect(this.x, this.y, this.#width, this.#height);
 		} else {
 			this.ctx.clearRect(this.x - 1, this.y - 1, this.#width + 1, this.#height + 1);
@@ -40,9 +40,5 @@ export class Rectangle extends BaseComponent {
 			x - CANVAS_LEFT_BOUND - this.x < this.#width &&
 			y - CANVAS_TOP_BOUND - this.y > 0 &&
 			y - CANVAS_TOP_BOUND - this.y < this.#height)
-	}
-
-	onClick() {
-		console.log(this.color)
 	}
 }

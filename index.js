@@ -1,17 +1,15 @@
-import { Rectangle } from "./src/components/Rectangle/Rectangle.js";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./src/canvas/canvas.js";
 import { Square } from "./src/components/Square/Square.js";
 
-let x = 10;
-let y = 10;
+const matrix = [];
 
-const square = new Square(x, y, 10, "green");
-square.draw()
-square.onClick()
+for (let i = 0; i < CANVAS_HEIGHT / 10; i++) {
+	matrix.push([]);
 
-const sq2 = new Rectangle(30, 50, 30, 50, "orange");
-sq2.draw()
-sq2.onClick()
-
-const sq3 = new Rectangle(50, 55, 30, 50, "blue");
-sq3.draw()
-sq3.onClick()
+	for (let j = 0; j < CANVAS_WIDTH / 10; j++) {
+		const sq = new Square(10 * j, 10 * i, 10, "black");
+		sq.stroke();
+		sq.draw();
+		matrix[i].push(sq);
+	}
+}
