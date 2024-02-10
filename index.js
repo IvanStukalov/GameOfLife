@@ -1,5 +1,5 @@
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./src/canvas/canvas.js";
-import { Square } from "./src/components/Square/Square.js";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../canvas/canvas.js";
+import { Square } from "../components/Square/Square.js";
 
 const matrix = [];
 
@@ -36,7 +36,6 @@ function fillRandom() {
 }
 
 function clear() {
-	console.log("clear")
 	for (let i = 0; i < CANVAS_HEIGHT / 10; i++) {
 		for (let j = 0; j < CANVAS_WIDTH / 10; j++) {
 			matrix[i][j].stroke();
