@@ -9,14 +9,14 @@ export function start() {
 	if (!intervalId) {
 		intervalId = setInterval(() => {
 			next(matrix);
-		}, 30); // Запуск интервала каждую секунду
+		}, 30);
 	}
 }
 
 export function stop() {
 	if (intervalId) {
-		clearInterval(intervalId); // Остановка интервала
-		intervalId = null; // Очистка ID интервала
+		clearInterval(intervalId);
+		intervalId = null;
 	}
 }
 
