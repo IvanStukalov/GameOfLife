@@ -2,10 +2,12 @@ const sidebar = document.getElementById("sidebar");
 const rect = sidebar.getBoundingClientRect();
 const sidebarWidth = rect.width + parseInt(window.getComputedStyle(sidebar).marginLeft, 10) + parseInt(window.getComputedStyle(sidebar).marginRight, 10);
 const spaceWidth = window.innerWidth - sidebarWidth;
+const windowWidth = window.innerWidth;
+console.log(spaceWidth, windowWidth)
 
 export const CANVAS_LEFT_BOUND = 10;
 export const CANVAS_TOP_BOUND = 10;
-export const CANVAS_WIDTH = spaceWidth;
+export const CANVAS_WIDTH = Math.round((windowWidth > 700 ? spaceWidth : windowWidth - 30) / 10) * 10;
 export const CANVAS_HEIGHT = 900;
 
 class Canvas {
