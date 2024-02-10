@@ -1,6 +1,6 @@
 ### Game Of Life
 
-[Демо игры](https://ivanstukalov.github.io/canvas/)
+[Демо игры](https://ivanstukalov.github.io/gameOfLife/)
 
 Игра "Жизнь", придуманная Джоном Конвеем
 
